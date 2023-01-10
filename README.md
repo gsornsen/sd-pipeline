@@ -10,6 +10,18 @@ make environment
 
 A virtual environment will be created and the required python dependencies will be installed.
 
+Once the virtual environment is created you'll need to source it to make use of the training command. This will be replaced in the future when we're not using a bash script to fire everything off.
+
+```bash
+source venv/bin/activate
+```
+
+NOTE: If using fish as your shell use the following
+
+```bash
+source venv/bin/activate.fish
+```
+
 ### Training a Model
 
 Edit `config` and define the following:
