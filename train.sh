@@ -131,6 +131,6 @@ function eight_gigs_vram {
 
 }
 
-exit 0
 
 dispatch_based_on_vram_size
+
