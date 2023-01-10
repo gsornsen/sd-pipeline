@@ -1,0 +1,10 @@
+accelerate
+torchvision
+transformers>=4.25.1
+ftfy
+tensorboard
+modelcards
+deepspeed
+torch>=1.12
+bitsandbytes
+jupyterlab

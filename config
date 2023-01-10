@@ -1,0 +1,8 @@
+# Change to stabilityai/stable-diffusion-2-1 for 768 resolution
+# Change to stabilityai/stable-diffusion-2-1-base for 512 resolution
+export MODEL_NAME="stabilityai/stable-diffusion-2-1"
+export INSTANCE_DIR="images/<subject>/768/instance"
+export CLASS_DIR="images/<subject>/768/class"
+export OUTPUT_DIR="models/<subject>/01-09-2023"
+export INSTANCE_PROMPT="<subject> person"
+export CLASS_PROMPT="person"
