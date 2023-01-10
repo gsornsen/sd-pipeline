@@ -51,14 +51,14 @@ function twenty_four_gigs_vram {
     remove_jupyter_checkpoints
     # Training with prior preservation for faces at full precision and also training the text encoder
     accelerate launch train_dreambooth.py \
-      --pretrained_model_name_or_path=$MODEL_NAME  \
+      --pretrained_model_name_or_path="${MODEL_NAME}"  \
       --train_text_encoder \
-      --instance_data_dir=$INSTANCE_DIR \
-      --class_data_dir=$CLASS_DIR \
-      --output_dir=$OUTPUT_DIR \
+      --instance_data_dir="${INSTANCE_DIR}" \
+      --class_data_dir="${CLASS_DIR}" \
+      --output_dir="${OUTPUT_DIR}" \
       --with_prior_preservation --prior_loss_weight=1.0 \
-      --instance_prompt=$INSTANCE_PROMPT \
-      --class_prompt=$CLASS_PROMPT \
+      --instance_prompt="${INSTANCE_PROMPT}" \
+      --class_prompt="${CLASS_PROMPT}" \
       --resolution=768 \
       --train_batch_size=1 \
       --use_8bit_adam
@@ -77,13 +77,13 @@ function sixteen_gigs_vram {
     remove_jupyter_checkpoints
     # Training with prior preservation for faces at full precsion, but not the text encoder
     accelerate launch train_dreambooth.py \
-      --pretrained_model_name_or_path=$MODEL_NAME  \
-      --instance_data_dir=$INSTANCE_DIR \
-      --class_data_dir=$CLASS_DIR \
-      --output_dir=$OUTPUT_DIR \
+      --pretrained_model_name_or_path="${MODEL_NAME}"  \
+      --instance_data_dir="${INSTANCE_DIR}" \
+      --class_data_dir="${CLASS_DIR}" \
+      --output_dir="${OUTPUT_DIR}" \
       --with_prior_preservation --prior_loss_weight=1.0 \
-      --instance_prompt=$INSTANCE_PROMPT \
-      --class_prompt=$CLASS_PROMPT \
+      --instance_prompt="${INSTANCE_PROMPT}" \
+      --class_prompt="${CLASS_PROMPT}" \
       --resolution=768 \
       --train_batch_size=1 \
       --use_8bit_adam
@@ -107,14 +107,14 @@ function eight_gigs_vram {
     # requires compilation and I have only been able to get it to work
     # using conda and a bunch of manual intervention
     accelerate launch --num_cpu_threads_per_process=8 train_dreambooth.py \
-      --pretrained_model_name_or_path=$MODEL_NAME \
-      --instance_data_dir=$INSTANCE_DIR \
-      --class_data_dir=$CLASS_DIR \
-      --output_dir=$OUTPUT_DIR \
+      --pretrained_model_name_or_path="${MODEL_NAME}" \
+      --instance_data_dir="${INSTANCE_DIR}" \
+      --class_data_dir="${CLASS_DIR}" \
+      --output_dir="${OUTPUT_DIR}" \
       --with_prior_preservation --prior_loss_weight=1.0 \
       --prior_generation_precision="fp16" \
-      --instance_prompt=$INSTANCE_PROMPT \
-      --class_prompt=$CLASS_PROMPT \
+      --instance_prompt="${INSTANCE_PROMPT}" \
+      --class_prompt="${CLASS_PROMPT}" \
       --resolution=512 \
       --train_batch_size=1 \
       --sample_batch_size=1 \
@@ -125,8 +125,8 @@ function eight_gigs_vram {
       --num_class_images=200 \
       --max_train_steps=3000 \
       --checkpointing_steps=250 \
-      --mixed_precision="fp16" \
       --enable_xformers_memory_efficient_attention \
+      # --mixed_precision="fp16" \
       # --resume_from_checkpoint="checkpoint-2000"
 
 }
